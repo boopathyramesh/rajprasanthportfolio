@@ -124,11 +124,18 @@ function sendToWhatsApp(event) {
   const message = document.getElementById('message').value;
 
 
-  const whatsappMessage = `Name: ${name}, Email: ${email}, Message: ${message}`;
-  
- 
-  const whatsappURL = `https://wa.me/918508879830?text=${whatsappMessage}`;
-  window.open(whatsappURL, '_blank'); // Opens WhatsApp link in a new tab
+  if (!name || !email || !message) {
+    alert("Please fill all the fields.");
+    return;
+}
+
+
+const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+const encodedMessage = encodeURIComponent(whatsappMessage);
+
+
+const whatsappLink = `https://wa.me/918508879830?text=${encodedMessage}`;
+  window.open(whatsappURL, '_blank');
 }
 
 
