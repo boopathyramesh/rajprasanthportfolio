@@ -135,9 +135,9 @@ function sendToWhatsApp(event) {
   // Encode the message to make it URL-safe
   const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
   const encodedMessage = encodeURIComponent(whatsappMessage);
-  const phoneNumber = '+91 8508879830'; 
+  
   // WhatsApp API link (use your own WhatsApp number here if needed)
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  const whatsappLink = `https://wa.me/918508879830?text=${encodedMessage}`;
 
   // Open WhatsApp link
   window.open(whatsappLink, '_blank');
