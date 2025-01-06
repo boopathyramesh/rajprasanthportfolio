@@ -117,32 +117,19 @@ function updateActiveLink() {
 }
 
 
-
 function sendToWhatsApp(event) {
-  event.preventDefault(); // Prevent the default form submission behavior
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
 
-  // Get form values
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
 
-  // Check if all fields are filled
-  if (!name || !email || !message) {
-      alert("Please fill all the fields.");
-      return;
-  }
-
-  // Encode the message to make it URL-safe
-  const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-  const encodedMessage = encodeURIComponent(whatsappMessage);
+  const whatsappMessage = `Name: ${name}, Email: ${email}, Message: ${message}`;
   
-  // WhatsApp API link (use your own WhatsApp number here if needed)
-  const whatsappLink = `https://wa.me/918508879830?text=${encodedMessage}`;
-
-  // Open WhatsApp link
-  window.open(whatsappLink, '_blank');
+ 
+  const whatsappURL = `https://wa.me/918508879830?text=${whatsappMessage}`;
+  window.open(whatsappURL, '_blank'); // Opens WhatsApp link in a new tab
 }
-
 
 
 
