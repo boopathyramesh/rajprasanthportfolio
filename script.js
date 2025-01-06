@@ -117,26 +117,35 @@ function updateActiveLink() {
 }
 
 
+
+
+
 function sendToWhatsApp(event) {
-  event.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+  event.preventDefault(); 
 
+  
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
 
+  
   if (!name || !email || !message) {
-    alert("Please fill all the fields.");
-    return;
+      alert("Please fill all the fields.");
+      return;
+  }
+
+  
+  const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+
+  
+  const whatsappLink = `https://wa.me/918508879830?text=${encodedMessage}`;
+
+  
+  window.open(whatsappLink, '_blank');
 }
 
 
-const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
-const encodedMessage = encodeURIComponent(whatsappMessage);
-
-
-const whatsappLink = `https://wa.me/918508879830?text=${encodedMessage}`;
-  window.open(whatsappURL, '_blank');
-}
 
 
 
